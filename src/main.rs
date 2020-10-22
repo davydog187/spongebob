@@ -26,9 +26,7 @@ fn get_help() {
         "\n{}\n\n{}\n{}\n",
         "hELp? DiD yOU RTFM?".red().reversed(),
         "Spongebob expects string arguments.",
-        "`$ ./spongebob something i want to say sarcastically`"
-            .cyan()
-            .reversed()
+        "`$ ./spongebob something i want to say sarcastically`".cyan()
     );
 }
 
