@@ -1,5 +1,6 @@
 use rand::Rng;
 use std::env;
+use cli_clipboard::{ClipboardContext, ClipboardProvider};
 
 fn spongebob(word: &str) -> String {
     let mut rng = rand::thread_rng();
@@ -14,6 +15,11 @@ fn spongebob(word: &str) -> String {
         .collect()
 }
 
+fn clippy(output: &str) {
+    let mut ctx = ClipboardContext::new().unwrap();
+    ctx.set_contents(output.to_owned()).unwrap();
+}
+
 fn main() {
     let mut words: Vec<String> = env::args().collect();
     words.remove(0);
@@ -26,5 +32,6 @@ fn main() {
             .fold(String::new(), |s, word| s + &word + " "),
     };
 
+    clippy(&output);
     println!("{}", output);
 }
