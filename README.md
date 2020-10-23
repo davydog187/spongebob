@@ -32,3 +32,15 @@ FLAGS:
 OPTIONS:
     -s, --style <style>    quiet, loud or normal
 ```
+
+## Install on Arch
+
+If you're running on Arch Linux you can install the package by building with the included `PKGBUILD`.
+
+```bash
+# Build the package
+makepkg
+
+# Install the resulting package file
+sudo pacman -U spongebob-0.1.0-1-x86_64.pkg.tar.zst
+```
