@@ -44,3 +44,9 @@ makepkg
 # Install the resulting package file
 sudo pacman -U spongebob-0.1.0-1-x86_64.pkg.tar.zst
 ```
+
+## Install using Snap
+
+```bash
+snap install --edge spongebob
+```
