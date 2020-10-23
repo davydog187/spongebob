@@ -6,7 +6,29 @@ The other version is written in Go, which is fast, but not ⚡ fast.
 
 ![](assets/screenshot.png)
 
-## Usage
+## Install
 1. [Install Rust](https://www.rust-lang.org/tools/install)
 2. `cargo build --release`
-2. `./target/release/spongebob rewrite it in rust`
+3. `cp ./target/release/spongebob /somewhere/in/your/path`
+
+## Usage
+
+``` bash
+$ spongebob --help
+spongebob 1.0
+Dave Lucia <davelucianyc@gmail.com>
+SPongEbOB IS BuiLT WiTH lOve foR aLl YOuR SarCAsTIc NEEds
+
+USAGE:
+    spongebob [OPTIONS] [input]...
+
+ARGS:
+    <input>...    SAy WhAT nEEDs tO BE saId
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+OPTIONS:
+    -s, --style <style>    quiet, loud or normal
+```
