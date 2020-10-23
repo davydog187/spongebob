@@ -1,1 +1,5 @@
 /target
+
+# Arch makepkg
+/pkg
+/*.zst
