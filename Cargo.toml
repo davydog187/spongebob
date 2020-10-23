@@ -9,4 +9,4 @@ edition = "2018"
 [dependencies]
 rand = "0.7.3"
 cli-clipboard = "0.2.0"
-colored = "2"
+clap = "3.0.0-beta.2"

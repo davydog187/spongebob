@@ -1,7 +1,14 @@
+use clap::Clap;
 use cli_clipboard::{ClipboardContext, ClipboardProvider};
-use colored::*;
 use rand::Rng;
-use std::env;
+
+/// SPongEbOB IS BuiLT WiTH lOve foR aLl YOuR SarCAsTIc NEEds
+#[derive(Clap)]
+#[clap(version = "1.0", author = "Dave Lucia <davelucianyc@gmail.com>")]
+struct Opts {
+    /// SAy WhAT nEEDs tO BE saId
+    input: Vec<String>,
+}
 
 fn spongebob(word: &str) -> String {
     let mut rng = rand::thread_rng();
@@ -21,30 +28,18 @@ fn clippy(output: &str) {
     ctx.set_contents(output.to_owned()).unwrap();
 }
 
-fn get_help() {
-    println!(
-        "\n{}\n\n{}\n{}\n",
-        "hELp? DiD yOU RTFM?".red().reversed(),
-        "Spongebob expects string arguments.",
-        "`$ ./spongebob something i want to say sarcastically`".cyan()
-    );
-}
-
 fn main() {
-    let mut words: Vec<String> = env::args().collect();
-    words.remove(0);
+    let opts = Opts::parse();
 
-    if words[0] == "--help" {
-        get_help();
-    } else {
-        let output = match words.as_slice() {
-            [] => spongebob("you're doing it wrong"),
-            words => words
-                .iter()
-                .map(|word| spongebob(word))
-                .fold(String::new(), |s, word| s + &word + " "),
-        };
-        clippy(&output);
-        println!("{}", output);
-    }
+    let words: Vec<String> = opts.input;
+
+    let output = match words.as_slice() {
+        [] => spongebob("you're doing it wrong"),
+        words => words
+            .iter()
+            .map(|word| spongebob(word))
+            .fold(String::new(), |s, word| s + &word + " "),
+    };
+    clippy(&output);
+    println!("{}", output);
 }
